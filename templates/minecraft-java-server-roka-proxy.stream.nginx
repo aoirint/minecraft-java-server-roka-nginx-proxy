@@ -1,7 +1,11 @@
+upstream minecraft-java-server-roka {
+  server ${REMOTE_HOST_PORT};
+}
+
 server {
   listen ${HOST_PORT} reuseport;
 
-  proxy_pass ${REMOTE_HOST_PORT};
+  proxy_pass minecraft-java-server-roka;
   proxy_connect_timeout 3600s;
   proxy_timeout 3600s;
   #proxy_max_temp_file_size 2048m;
